@@ -114,6 +114,16 @@ public class TestIntegrazione {
     verifyThat(errorMessage1, hasText(errorString));
   }
 
+  @ParameterizedTest()
+  @CsvSource(textBlock = """
+      Mattia ,'', Empty payment amount
+      """)
+  void testInputPayingErrorBlankAmount(String nameString, String excursionString, String errorString, @NotNull FxRobot robot) {
+    pay(nameString, excursionString, robot);
+
+    verifyThat(errorMessage1, hasText(errorString));
+  }
+
   @Test
   public void testDisplayStartOK() {
     assertThat(excursionsDisplay.get(0)).startsWith("Brera").endsWith("5");
