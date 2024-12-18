@@ -15,5 +15,6 @@ public class BookingPresenter implements InputPresenter {
     @Override
     public void action(@NotNull String who, @NotNull String where) {
         if (who.isBlank()) view.showError("Empty customer name");
+        if (where.isBlank()) view.showError("Empty excursion name");
     }
 }
