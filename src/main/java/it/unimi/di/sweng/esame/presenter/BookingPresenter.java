@@ -9,10 +9,11 @@ public class BookingPresenter implements InputPresenter {
 
     public BookingPresenter(@NotNull InputView inputBooking) {
         this.view = inputBooking;
+        view.addHandlers(this);
     }
 
     @Override
     public void action(@NotNull String who, @NotNull String where) {
-
+        if (who.isBlank()) view.showError("Empty customer name");
     }
 }
