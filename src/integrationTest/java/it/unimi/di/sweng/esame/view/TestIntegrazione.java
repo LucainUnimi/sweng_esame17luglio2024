@@ -94,6 +94,16 @@ public class TestIntegrazione {
     verifyThat(errorMessage, hasText(errorString));
   }
 
+  @ParameterizedTest()
+  @CsvSource(textBlock = """
+      Carlo ,'' , Empty excursion name
+      """)
+  void testInputBookingErrorExcursion(String nameString, String excursionString, String errorString, @NotNull FxRobot robot) {
+    book(nameString, excursionString, robot);
+
+    verifyThat(errorMessage, hasText(errorString));
+  }
+
   @Test
   public void testDisplayStartOK() {
     assertThat(excursionsDisplay.get(0)).startsWith("Brera").endsWith("5");
