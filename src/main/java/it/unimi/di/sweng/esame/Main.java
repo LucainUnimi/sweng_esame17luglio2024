@@ -2,6 +2,8 @@ package it.unimi.di.sweng.esame;
 
 import it.unimi.di.sweng.esame.model.ModelState;
 import it.unimi.di.sweng.esame.presenter.BookingPresenter;
+import it.unimi.di.sweng.esame.presenter.BookingStrategy;
+import it.unimi.di.sweng.esame.presenter.PaymentStrategy;
 import it.unimi.di.sweng.esame.view.DisplayView;
 import it.unimi.di.sweng.esame.view.InputConcreteView;
 import javafx.application.Application;
@@ -49,8 +51,8 @@ public class Main extends Application {
         ModelState model = new ModelState();
         model.readFile();
 
-        new BookingPresenter(inputBooking);
-        new BookingPresenter(inputPayment);
+        new BookingPresenter(inputBooking, BookingStrategy.INSTANCE);
+        new BookingPresenter(inputPayment, PaymentStrategy.INSTANCE);
 
 
         Scene scene = new Scene(gridPane);

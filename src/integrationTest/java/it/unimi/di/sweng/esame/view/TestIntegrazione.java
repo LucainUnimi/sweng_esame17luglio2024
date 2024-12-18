@@ -116,7 +116,7 @@ public class TestIntegrazione {
 
   @ParameterizedTest()
   @CsvSource(textBlock = """
-      Mattia ,'', Empty payment amount
+      Mattia ,'',Empty payment amount
       """)
   void testInputPayingErrorBlankAmount(String nameString, String excursionString, String errorString, @NotNull FxRobot robot) {
     pay(nameString, excursionString, robot);
