@@ -50,6 +50,7 @@ public class Main extends Application {
         model.readFile();
 
         new BookingPresenter(inputBooking);
+        new BookingPresenter(inputPayment);
 
 
         Scene scene = new Scene(gridPane);
