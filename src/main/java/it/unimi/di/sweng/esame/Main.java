@@ -1,6 +1,7 @@
 package it.unimi.di.sweng.esame;
 
 import it.unimi.di.sweng.esame.model.ModelState;
+import it.unimi.di.sweng.esame.presenter.BookingPresenter;
 import it.unimi.di.sweng.esame.view.DisplayView;
 import it.unimi.di.sweng.esame.view.InputConcreteView;
 import javafx.application.Application;
@@ -47,6 +48,8 @@ public class Main extends Application {
         //TODO: modificare e completare il seguente codice per istanziare e collegare i vari componenti
         ModelState model = new ModelState();
         model.readFile();
+
+        new BookingPresenter(inputBooking);
 
 
         Scene scene = new Scene(gridPane);
